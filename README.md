@@ -25,7 +25,7 @@ Un gerente de operaciones necesita decidir **a qué vendedores exigirles mejoras
 
 ### Exploración y calidad de datos
 
-Antes de analizar, revisé la calidad de las 9 tablas con una [plantilla SQL de perfilamiento](sql/00_plantilla_calidad_olist.sql): conteo de filas, vacíos, duplicados, formatos, cruces entre tablas, fechas y montos. Registré **27 hallazgos** en una [bitácora de calidad](bitacora_calidad_olist.xlsx), cada uno con su impacto en las preguntas de negocio y la decisión tomada.
+Antes de analizar, revisé la calidad de las 9 tablas con una [plantilla SQL de perfilamiento](00_plantilla_calidad_olist.sql): conteo de filas, vacíos, duplicados, formatos, cruces entre tablas, fechas y montos. Registré **27 hallazgos** en una [bitácora de calidad](bitacora_calidad_olist.xlsx), cada uno con su impacto en las preguntas de negocio y la decisión tomada.
 
 Los más relevantes:
 
@@ -35,7 +35,7 @@ Los más relevantes:
 
 ### Capa de datos limpia
 
-Creé [3 vistas SQL](sql/01_vistas_limpias.sql) sin modificar las tablas originales:
+Creé [3 vistas SQL](01_vistas_limpias.sql) sin modificar las tablas originales:
 
 | Vista | Qué contiene | Filas |
 | --- | --- | --- |
@@ -51,18 +51,18 @@ Creé [3 vistas SQL](sql/01_vistas_limpias.sql) sin modificar las tablas origina
 
 ### Hallazgo 1 · El atraso no es parejo: se dispara en meses puntuales
 
-![Evolución mensual de atrasos](img/01_evolucion_mensual_atrasos.png)
+![Evolución mensual de atrasos](01_evolucion_mensual_atrasos.png)
 
 - El **6,8 %** de los pedidos llega tarde (6.531 de 96.203).
 - El atraso se dispara en **noviembre 2017 (12,4 %)** y en **febrero y marzo 2018 (14,1 % y 19,0 %)**, hasta casi el triple del promedio.
 - Después de abril 2018 vuelve a moverse **entre 1 % y 7 %**.
 - El problema no es que haya más atrasos porque hay más pedidos: son **meses puntuales en que la operación falló**.
 
-[Consulta SQL](sql/02_pregunta_1_atraso_mensual.sql)
+[Consulta SQL](02_pregunta_1_atraso_mensual.sql)
 
 ### Hallazgo 2 · Pocos vendedores concentran una parte desproporcionada de los atrasos
 
-![Atrasos vs ventas por vendedor](img/02_atrasos_vs_ventas_vendedores.png)
+![Atrasos vs ventas por vendedor](02_atrasos_vs_ventas_vendedores.png)
 
 Clasifiqué a los vendedores con al menos 50 pedidos según su volumen (más o menos de 200 pedidos) y su atraso (sobre o bajo el promedio de 6,8 %):
 
@@ -77,11 +77,11 @@ Clasifiqué a los vendedores con al menos 50 pedidos según su volumen (más o m
 - Los **10 vendedores con más atrasos** generan el **15,7 % de los atrasos**, pero solo el **9,7 % de la venta**.
 - Hay vendedores muy desproporcionados: uno genera el **1,2 % de los atrasos con solo el 0,1 % de la venta** (casi 10 veces más de lo que le correspondería por su tamaño), y otro el 1,5 % con el 0,3 %.
 
-[Consulta SQL](sql/03_pregunta_2_vendedores.sql)
+[Consulta SQL](03_pregunta_2_vendedores.sql)
 
 ### Hallazgo 3 · El atraso hunde la satisfacción del cliente, y el daño ocurre en la primera semana
 
-![Satisfacción según días de atraso](img/03_satisfaccion_segun_atraso.png)
+![Satisfacción según días de atraso](03_satisfaccion_segun_atraso.png)
 
 | | A tiempo | Atrasado |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ Clasifiqué a los vendedores con al menos 50 pedidos según su volumen (más o m
 - **Con 4 a 7 días de atraso**, más de la mitad de los clientes (58,6 %) pone nota 1, y desde ahí no baja de ese nivel.
 - **Sobre los 8 días**, la nota toca fondo, cerca de 1,7. Después de la primera semana ya no puede empeorar mucho más.
 
-[Consulta SQL](sql/04_pregunta_3_resenas.sql)
+[Consulta SQL](04_pregunta_3_resenas.sql)
 
 ---
 
