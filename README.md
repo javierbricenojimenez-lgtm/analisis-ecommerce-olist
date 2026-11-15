@@ -3,6 +3,7 @@
 **Cuando un pedido llega tarde, más de la mitad de los clientes pone la peor nota posible.** Este proyecto mide cuánto se atrasan los pedidos, qué vendedores concentran esos atrasos y cuánto le cuesta el atraso a la empresa en satisfacción del cliente.
 
 **Herramientas:** SQL (SQLite · DB Browser) · Excel
+**Informe completo para gerencia:** [PDF](Informe_Analisis_Ecommerce_Olist.pdf)
 **Datos:** [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce): pedidos reales y anonimizados de un marketplace de Brasil. 9 tablas, ~100.000 pedidos, septiembre 2016 a octubre 2018. Montos en reales (R$).
 
 ---
@@ -117,20 +118,19 @@ Clasifiqué a los vendedores con al menos 50 pedidos según su volumen (más o m
 
 ---
 
-## 6. Estructura del repositorio
+## 6. Archivos del repositorio
 
-```
-proyecto_olist/
-├── README.md                          ← este informe
-├── bitacora_calidad_olist.xlsx        ← 27 hallazgos de calidad y decisiones
-├── sql/
-│   ├── 00_plantilla_calidad_olist.sql ← perfilamiento de calidad de datos
-│   ├── 01_vistas_limpias.sql          ← capa limpia (3 vistas)
-│   ├── 02_pregunta_1_atraso_mensual.sql
-│   ├── 03_pregunta_2_vendedores.sql
-│   └── 04_pregunta_3_resenas.sql
-└── img/                               ← gráficos del informe
-```
+| Archivo | Contenido |
+| --- | --- |
+| `README.md` | Resumen del proyecto (esta página) |
+| `Informe_Analisis_Ecommerce_Olist.pdf` | Informe completo para gerencia |
+| `bitacora_calidad_olist.xlsx` | 27 hallazgos de calidad de datos y decisiones |
+| `00_plantilla_calidad_olist.sql` | Perfilamiento de calidad de datos |
+| `01_vistas_limpias.sql` | Capa limpia (3 vistas) |
+| `02_pregunta_1_atraso_mensual.sql` | Consulta de la pregunta 1 |
+| `03_pregunta_2_vendedores.sql` | Consulta de la pregunta 2 |
+| `04_pregunta_3_resenas.sql` | Consultas de la pregunta 3 |
+| `01_`, `02_` y `03_` `.png` | Gráficos del informe |
 
 ---
 
