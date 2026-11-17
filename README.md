@@ -133,5 +133,34 @@ Clasifiqué a los vendedores con al menos 50 pedidos según su volumen (más o m
 | `01_`, `02_` y `03_` `.png` | Gráficos del informe |
 
 ---
+## Dashboard en Power BI
+
+![Dashboard Power BI](04_dashboard_power_bi.png)
+
+Dashboard de una página que responde las 3 preguntas de negocio y permite explorar los datos.
+
+**Qué muestra**
+
+| Sección | Gráfico | Lo que se ve de un vistazo |
+| --- | --- | --- |
+| Indicadores clave | 6 tarjetas | 96.203 pedidos, 6,8 % de atraso, nota 4,29 a tiempo vs 2,27 atrasado, 39 vendedores prioritarios con el 28 % de los atrasos |
+| 1 · Atraso mensual | Columnas (pedidos) + líneas (% atraso vs mes típico de 4,4 %) | Los peaks de nov-17 y feb/mar-18, y que no se explican solo por volumen |
+| 2 · Vendedores | Matriz de dispersión + % de atraso por segmento | Cada punto es un vendedor. Los prioritarios (rojo) tienen alto volumen y atraso sobre el 6,8 % |
+| Plan de mejora | Tabla de los 39 prioritarios | Ordenados por venta atrasada, con el % de atraso resaltado |
+| 3 · Satisfacción | Columnas (% clientes con nota 1) + línea (nota promedio) | Con 4 a 7 días de atraso, el 59 % de los clientes pone nota 1 |
+
+**Cómo se construyó**
+
+- **Datos:** 3 vistas SQL preparadas para Power BI ([`05_vistas_power_bi.sql`](05_vistas_power_bi.sql)), exportadas a CSV desde la capa limpia.
+- **Modelo:** relación entre líneas de pedido y pedidos, y una tabla de medidas DAX (% de atraso, mes típico como mediana mensual, nota promedio, % de clientes con nota 1, venta atrasada, entre otras).
+- **Validación:** cada cifra del dashboard se cuadró contra las consultas SQL y el informe (por ejemplo 96.203 pedidos, 6.531 atrasados y R$232.807 de venta atrasada de los prioritarios).
+
+**Interacción**
+
+- Segmentador por **segmento de vendedor** (filtra la matriz y el gráfico por segmento).
+- Al hacer clic en un mes o en un tramo de días se filtran los demás gráficos. Las tarjetas mantienen el total del período.
+
+Archivo: [`dashboard_olist.pbix`](dashboard_olist.pbix) (se abre con Power BI Desktop, gratuito).
+<img width="2004" height="1122" alt="04_dashboard_power_bi" src="https://github.com/user-attachments/assets/86f767eb-39c8-482f-99e7-f81bab573248" />
 
 **Autor:** Javier Briceño · [LinkedIn](https://www.linkedin.com/in/javier-brice%C3%B1o-59b218334/) · [GitHub](https://github.com/javierbricenojimenez-lgtm)
