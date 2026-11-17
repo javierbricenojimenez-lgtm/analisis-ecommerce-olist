@@ -160,7 +160,6 @@ Dashboard de una página que responde las 3 preguntas de negocio y permite explo
 - Segmentador por **segmento de vendedor** (filtra la matriz y el gráfico por segmento).
 - Al hacer clic en un mes o en un tramo de días se filtran los demás gráficos. Las tarjetas mantienen el total del período.
 
-Archivo: [`dashboard_olist.pbix`](dashboard_olist.pbix) (se abre con Power BI Desktop, gratuito).
-<img width="2004" height="1122" alt="04_dashboard_power_bi" src="https://github.com/user-attachments/assets/86f767eb-39c8-482f-99e7-f81bab573248" />
+<img width="2662" height="1498" alt="04_dashboard_power_bi" src="https://github.com/user-attachments/assets/b990cf76-8b75-4509-9d38-ae47d8d1b4c2" />
 
 **Autor:** Javier Briceño · [LinkedIn](https://www.linkedin.com/in/javier-brice%C3%B1o-59b218334/) · [GitHub](https://github.com/javierbricenojimenez-lgtm)
